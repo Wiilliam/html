@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .star {
+            display: inline-block;
+            font-size: 0;
+            position: relative;
+        }
+
+        .star-item {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAMAAADJ7yrpAAAAYFBMVEUAAAD92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92UmCTPEWAAAAH3RSTlMA9iwe++hAgPLJo13i3Td8JO3Sk4xtYkYUC76cVBIjGgBFCwAAAMtJREFUKM+1kUkOhCAQRUEFBHGep67737JRlEFNJ73wbyAv9WtRD/1O3z/AqrqzDqC7spEAkPECGagwlwRJE28wbpJAk5xjcIJ5rmBBwAsp9nLpsvJYkMWWxRk6QrHZSJFJesIU2UQnjCwLwSQ0kG4zQmzzdmcCuA5VocaQGNiyQX8G1qK/8q6jNH1wtCx3RxwhfnUkM3Vs6ToSdNUDK52NI6JL+4R1JD/HYaXriOsP9xxN+p08R0JV1ZlnzxELRBSJIPccSe1IvufoCxGAFoLwSVOBAAAAAElFTkSuQmCC') center top no-repeat;
+        }
+
+        input[type="radio"] {
+            position: absolute;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        input[type="radio"]:checked+.star-item~.star-item {
+            /**这里需要排除掉当前选项，所以选择的是下一个（+）节点的后面的（~）节点**/
+            background-position: center bottom;
+        }
+
+        .star:hover label.star-item {
+            /* background-position: center top !important; */
+            /**由于前面的选择器层级较高，这里简单用!important来处理**/
+        }
+
+        label.star-item:hover~.star-item {
+            background-position: center bottom !important;
+        }
+
+        .star-item:after {
+            /*加点样式*/
+            position: absolute;
+            width: 100px;
+            font-size: 14px;
+            height: 20px;
+            line-height: 20px;
+            right: 0;
+            margin-right: -105px;
+            color: #666
+        }
+
+        .star:hover .star-item:after {
+            content: '' !important
+        }
+
+        input[type="radio"]:checked+.star-item:after {
+            content: attr(title)
+        }
+
+        .star:hover .star-item:hover:after {
+            content: attr(title) !important
+        }
+    </style>
+</head>
+
+<body>
+    <div class="star">
+        <input type="radio" name="item" id="item01" checked />
+        <!--这里设置checked初始状态-->
+        <label class="star-item" for="item01" title="垃圾"></label>
+        <input type="radio" name="item" id="item02" />
+        <label class="star-item" for="item02" title="很差"></label>
+        <input type="radio" name="item" id="item03" />
+        <label class="star-item" for="item03" title="一般"></label>
+        <input type="radio" name="item" id="item04" />
+        <label class="star-item" for="item04" title="很好"></label>
+        <input type="radio" name="item" id="item05" />
+        <label class="star-item" for="item05" title="完美"></label>
+    </div>
+</body>
+
+</html>

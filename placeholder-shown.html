@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input:placeholder-shown+label {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        input:placeholder-shown {
+            border: 2px solid silver;
+            outline: none;
+        }
+
+        h2::first-line {
+            color: antiquewhite;
+        }
+
+        input+label {
+            border: 1px solid black;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            transition: all 0.1s;
+            opacity: 1;
+            background: white;
+            border: 2px solid;
+            border-width: 0 2px 0 2px;
+            padding: 0 5px;
+            transform: translateY(calc(50% + 5px));
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+        很多年前，Chrome浏览器还没出身，IE9还未出现的时候，first-letter那时候还叫做伪类选择器，写法是一个冒号，如斯:first-letter，那时候的语义要更直白一些，选择第一个字符，然后设置一些样式。后来，伪类和伪元素被划分地更加明确和规范了，::after,
+        ::before, ::backdrop, ::first-letter, ::first-line, ::selection（文章参见这里）是伪元素，:active, :focus, :checked等等被称为伪类。导致::first-letter的语义发生了一些变化——首字符作为元素的假想子元素。
+    </h2>
+    <input type="text" placeholder="Full Name" id="name">
+    <label for="name">Full Name</label>
+</body>
+
+</html>
