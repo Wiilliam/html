@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>img</title>
+</head>
+
+<body>
+
+    <h3>referrer策略</h3>
+    <pre>
+        空字符串
+        no-referrer   最简单的策略是“no-referrer”，表示所有的请求都不带referrer。
+        no-referrer-when-downgrade    主要针对于受TLS保护的URL（如https），简单的说就是https的页面中，当连接的资源也是https的，则发送完整的referrer，如果连接的资源是http的，就不发送referrer
+        same-origin   对于同源的链接，会发送referrer，其他的不会
+        origin   这个策略对于任何资源来说只发送源的信息，不发送完整的url。
+        strict-origin   这个策略类似于origin和no-referrer-when-downgrade的合体，如果一个https页面中链接到http的页面或资源，则不会发送referrer。http页面链接以及https链接到https都只发送来源页面的源信息。
+        origin-when-cross-origin   该策略在同源的链接中发送完整的URL，其他情况仅发送源信息。相同的域名，http和https协议被认为是非同源的。
+        strict-origin-when-cross-origin   对于同源请求，发送完整的URL；对于同为https的，只发送源信息；对于http页面只发送源信息；https页面中的http请求不发送referrer。
+        unsafe-url   这个主要是解决https页面中的http资源不发referrer的问题，它会使在https页面中http资源发送完整的referrer
+    </pre>
+
+    <img src="https://github.com/liangyuetian/node/blob/master/public/img/CosPlay/%E5%8F%AF%E7%88%B1%E7%9A%84%E5%B0%8F%E5%A7%90%E5%A7%90/005CiHwdgy1fj38uvsjmsj31yv2ybx6s.jpg?raw=true"
+        srcset="https://github.com/liangyuetian/node/blob/master/public/img/CosPlay/%E5%8F%AF%E7%88%B1%E7%9A%84%E5%B0%8F%E5%A7%90%E5%A7%90/005CiHwdgy1fj38uvsjmsj31yv2ybx6s.jpg?raw=true 1200w, images/share.jpg 800w, https://github.com/liangyuetian/node/blob/master/public/img/CosPlay/%E5%8F%AF%E7%88%B1%E7%9A%84%E5%B0%8F%E5%A7%90%E5%A7%90/005CiHwdgy1fj38uvsjmsj31yv2ybx6s.jpg?raw=true 320w"
+        sizes="(max-width: 320px) 300w, 1200w" />
+</body>
+
+</html>
