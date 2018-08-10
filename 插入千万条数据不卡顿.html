@@ -8,34 +8,6 @@
 <body>
 	<ul>控件</ul>
 	<script type="text/javascript">
-		function x() {
-			const total = 100000;
-			const once = 20;
-
-			const loopCount = total / once;
-
-			let countOfRender = 0;
-			let ul = document.querySelector('ul');
-
-			function add() {
-				const fragment = document.createDocumentFragment();
-				for (let i = 0; i < once; i++) {
-					const li = document.createElement('li');
-					li.innerText = i + ':' + countOfRender + ' : ' + Math.floor(Math.random() * total);
-					fragment.appendChild(li);
-					li.style.color = '#' + 658342 * Math.random() * total
-				}
-				ul.appendChild(fragment);
-				countOfRender += 1;
-				loop();
-			}
-			function loop() {
-				if (countOfRender < loopCount) {
-					window.requestAnimationFrame(add);
-				}
-			}
-			loop();
-		}
 
 		function insertData(option) {
 			!option && (option = {
